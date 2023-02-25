@@ -20,5 +20,4 @@ for (int i = 0; i < array.Length; i++)
         max = array[i];
 }
 
-double difference = max - min;
-Console.Write($"difference max and min is equal {difference}");
+Console.Write($"difference between max and min meaning is {max - min} ");
