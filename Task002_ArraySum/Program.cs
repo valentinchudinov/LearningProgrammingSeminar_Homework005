@@ -1,19 +1,34 @@
 ﻿// Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
 Console.Clear();
 
-int[] array = new int[10];
-Random random = new Random();
 
-for (int i = 0; i < array.Length; i++)
+int sumOddIndex = 0;
+int[] array = GetArray();
+int[] GetArray()
 {
-    array[i] = random.Next(1, 5);
-    Console.Write($"{array[i] + " "}");
+    int[] array = new int[10];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(0, 5);
+    }
+    return array;
 }
-int sum = 0;
-for (int i = 0; i < array.Length; i++)
+
+int SumNegative(int[] array)
 {
-    if (i % 2 != 0)
-        sum += array[i];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (i % 2 != 0)
+            sumOddIndex += array[i];
+    }
+    return sumOddIndex;
 }
-Console.WriteLine();
-Console.WriteLine("The sum of elements in odd positions is equal to {0}", sum);
+
+void PrintResult(int[] array, int sumOddIndex)
+{
+    Console.WriteLine($"Array: {String.Join(" ", array)}");
+    Console.WriteLine($"Summary numbers of odd positions: {sumOddIndex}");
+}
+
+SumNegative(array);
+PrintResult(array, sumOddIndex);
